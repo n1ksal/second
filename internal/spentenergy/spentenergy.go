@@ -34,8 +34,10 @@ const (
 )
 
 func RunningSpentCalories(steps int, weight float64, duration time.Duration) float64 {
+	// Рассчитал среднюю скорость с помощью meanSpeed().
+	speedrun := MeanSpeed(steps, duration)
 	// Рассчитал и вернул количество калорий.
-	return ((runningCaloriesMeanSpeedMultiplier * speed) - runningCaloriesMeanSpeedShift) * weight
+	return ((runningCaloriesMeanSpeedMultiplier * speedrun) - runningCaloriesMeanSpeedShift) * weight
 }
 
 func MeanSpeed(steps int, duration time.Duration) float64 {
